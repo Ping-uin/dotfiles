@@ -1,10 +1,20 @@
 -- OPTIONS
 vim.o.number = true
-vim.o.signcolumn = "yes"
+vim.o.signcolumn = "yes" -- bar for icons on the left
 vim.o.termguicolors = true
 vim.o.tabstop = 4
 vim.o.swapfile = false
-vim.o.winborder = "rounded"
+vim.o.winborder = "rounded" -- more distinguishable ctrl + k window
+vim.o.scrolloff = 5         -- window moves down if cursor is x lines above upper/bottom line
+vim.o.sidescrolloff = 5
+vim.o.incsearch = true
+vim.o.ignorecase = true
+vim.o.colorcolumn = "120" -- vertical bar for code length
+vim.o.showmatch = true
+vim.o.cursorline = true   -- show cursor position
+
+-- set wezterm as default terminal 
+-- vim.o.shell = "wezterm"	-- BUG: This opens wezterm as a external window not in buffer
 
 -- HOTKEYS
 vim.g.mapleader = " "                                       -- spacebar as leader key
@@ -14,6 +24,25 @@ vim.keymap.set('n', '<leader>w', ':write<CR>')
 vim.keymap.set('n', '<leader>q', ':quit<CR>')
 vim.keymap.set({ 'n', 'v', 'x' }, '<leader>y', '"+y<CR>') -- copy to system clipboard
 vim.keymap.set({ 'n', 'v', 'x' }, '<leader>x', '"+d<CR>') -- cut to system clipboard
+
+-- open new windows/buffers/terminals
+vim.keymap.set('n', '<leader>tv', ':vsplit | terminal<CR>i') -- vertical terminal split
+vim.keymap.set('n', '<leader>th', ':split | terminal<CR>i')  -- horizontal terminal split
+vim.keymap.set('n', '<leader>vs', ':vsplit<CR>')            -- vertical split (no terminal)
+vim.keymap.set('n', '<leader>hs', ':split<CR>')             -- horizontal split (no terminal)
+
+-- terminal navigation
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')       -- exit terminal mode with Esc
+vim.keymap.set('t', '<C-h>', '<C-\\><C-n><C-w>h') -- navigate from terminal
+vim.keymap.set('t', '<C-j>', '<C-\\><C-n><C-w>j')
+vim.keymap.set('t', '<C-k>', '<C-\\><C-n><C-w>k')
+vim.keymap.set('t', '<C-l>', '<C-\\><C-n><C-w>l')
+
+-- move between windows/buffers with ctrl + directional keys
+vim.keymap.set('n', '<C-h>', '<C-w>h')
+vim.keymap.set('n', '<C-j>', '<C-w>j')
+vim.keymap.set('n', '<C-k>', '<C-w>k')
+vim.keymap.set('n', '<C-l>', '<C-w>l')
 
 -- PLUGINS
 vim.pack.add({
