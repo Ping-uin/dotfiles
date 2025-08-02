@@ -68,7 +68,9 @@ vim.cmd("set completeopt+=noselect")
 
 require "mini.pick".setup()
 require "nvim-treesitter.configs".setup({
-	ensure_installed = { "javascript" },
+	ensure_installed = { "lua", "javascript", "python", "rust",
+		"c", "cpp", "julia", "json", "yaml", "markdown"
+	},
 	highlight = { enable = true }
 })
 require "oil".setup()
