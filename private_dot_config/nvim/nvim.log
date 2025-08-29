@@ -1,0 +1,47 @@
+[?1049h[22;0;0t[?1h=[H[2J[?2004h[?2026$p[?u[c[?25h[?25l(B[m[H[2J[23Bsourcing "/nix/store/0pws6w23nrgffih3w54ncqmxkxjy2r14-neovim-unwrapped-0.10.2/sh[H[38;2;224;226;234m[48;2;20;22;27m[23M
+are/nvim/runtime/ftplugin.vim"                                                  
+finished sourcing /nix/store/0pws6w23nrgffih3w54ncqmxkxjy2r14-neovim-unwrapped-0
+.10.2/share/nvim/runtime/ftplugin.vim                                           
+sourcing "/nix/store/0pws6w23nrgffih3w54ncqmxkxjy2r14-neovim-unwrapped-0.10.2/sh
+are/nvim/runtime/indent.vim"                                                    
+finished sourcing /nix/store/0pws6w23nrgffih3w54ncqmxkxjy2r14-neovim-unwrapped-0
+.10.2/share/nvim/runtime/indent.vim                                             
+could not source "/home/nclshrnk/.config/kdedefaults/nvim/sysinit.vim"          
+could not source "/etc/xdg/nvim/sysinit.vim"                                    
+could not source "/home/nclshrnk/.nix-profile/etc/xdg/nvim/sysinit.vim"         
+could not source "/nix/profile/etc/xdg/nvim/sysinit.vim"                        
+could not source "/home/nclshrnk/.local/state/nix/profile/etc/xdg/nvim/sysinit.v
+im"                                                                             
+could not source "/etc/profiles/per-user/nclshrnk/etc/xdg/nvim/sysinit.vim"     
+could not source "/nix/var/nix/profiles/default/etc/xdg/nvim/sysinit.vim"       
+could not source "/run/current-system/sw/etc/xdg/nvim/sysinit.vim"              
+could not source "$VIM/sysinit.vim"                                             
+sourcing "/home/nclshrnk/.config/nvim/init.lua"                                 
+line 0: sourcing "/nix/store/0pws6w23nrgffih3w54ncqmxkxjy2r14-neovim-unwrapped-0
+.10.2/share/nvim/runtime/filetype.lua"                                          
+line 0: sourcing "/home/nclshrnk/.config/nvim/after/ftdetect/ocamlinterface.lua"
+finished sourcing /home/nclshrnk/.config/nvim/after/ftdetect/ocamlinterface.lua 
+-- More --                                                                      ]112[1 q[Hsourcing "/nix/store/0pws6w23nrgffih3w54ncqmxkxjy2r14-neovim-unwrapped-0.10.2/sh
+are/nvim/runtime/ftplugin.vim"                                                  
+finished sourcing /nix/store/0pws6w23nrgffih3w54ncqmxkxjy2r14-neovim-unwrapped-0
+.10.2/share/nvim/runtime/ftplugin.vim                                           
+sourcing "/nix/store/0pws6w23nrgffih3w54ncqmxkxjy2r14-neovim-unwrapped-0.10.2/sh
+are/nvim/runtime/indent.vim"                                                    
+finished sourcing /nix/store/0pws6w23nrgffih3w54ncqmxkxjy2r14-neovim-unwrapped-0
+.10.2/share/nvim/runtime/indent.vim                                             
+could not source "/home/nclshrnk/.config/kdedefaults/nvim/sysinit.vim"          
+could not source "/etc/xdg/nvim/sysinit.vim"                                    
+could not source "/home/nclshrnk/.nix-profile/etc/xdg/nvim/sysinit.vim"         
+could not source "/nix/profile/etc/xdg/nvim/sysinit.vim"                        
+could not source "/home/nclshrnk/.local/state/nix/profile/etc/xdg/nvim/sysinit.v
+im"                                                                             
+could not source "/etc/profiles/per-user/nclshrnk/etc/xdg/nvim/sysinit.vim"     
+could not source "/nix/var/nix/profiles/default/etc/xdg/nvim/sysinit.vim"       
+could not source "/run/current-system/sw/etc/xdg/nvim/sysinit.vim"              
+could not source "$VIM/sysinit.vim"                                             
+sourcing "/home/nclshrnk/.config/nvim/init.lua"                                 
+line 0: sourcing "/nix/store/0pws6w23nrgffih3w54ncqmxkxjy2r14-neovim-unwrapped-0
+.10.2/share/nvim/runtime/filetype.lua"                                          
+line 0: sourcing "/home/nclshrnk/.config/nvim/after/ftdetect/ocamlinterface.lua"
+finished sourcing /home/nclshrnk/.config/nvim/after/ftdetect/ocamlinterface.lua 
+-- More --                                                                      [24;11H[?25h[?25l[?1004h[?25h
