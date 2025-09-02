@@ -1,5 +1,7 @@
 # ZSH Configuration 
 
+# HACK: ln -s ~/.config/zsh/.zshrc ~/.zshrc
+
 # ATUIN ENABLE
 export PATH="$HOME/.atuin/bin:$PATH"
 eval "$(atuin init zsh)"
