@@ -6,7 +6,7 @@ config.window_background_opacity = 0.9
 config.macos_window_background_blur = 30
 config.window_decorations = 'NONE'
 config.hide_mouse_cursor_when_typing = false
--- initial geometry for new windows
+-- init size for new windows
 config.initial_cols = 120
 config.initial_rows = 35
 config.adjust_window_size_when_changing_font_size = false
@@ -18,7 +18,7 @@ config.color_scheme = 'Kanagawa (Gogh)'
 config.default_prog = { "zsh" }
 
 wezterm.on("update-right-status", function(window, pane)
-  -- Kanagawa Farben als Variablen
+  -- kanagawa hexcodes 
   local colors = {
     red = "#E82424",      -- kanagawa red
     orange = "#FF9E3B",   -- kanagawa orange
@@ -29,11 +29,11 @@ wezterm.on("update-right-status", function(window, pane)
   
   local elements = {}
   
-  -- Battery Info
+  -- battery info
   local battery_info = ""
   for _, b in ipairs(wezterm.battery_info()) do
     local battery_pct = b.state_of_charge * 100
-    local battery_icon = "󰁹" -- nerd font battery icon
+    local battery_icon = "󰁹" -- nerd font
     local battery_color = colors.blue
     if battery_pct < 25 then
       battery_icon = "󰂎"
@@ -51,8 +51,8 @@ wezterm.on("update-right-status", function(window, pane)
     table.insert(elements, { Text = battery_info })
   end
   
-  -- Wochentag (kurz)
-  local weekday = wezterm.strftime("%a") -- Mon, Tue, Wed, etc.
+  -- weekday
+  local weekday = wezterm.strftime("%a") -- Mon, Tue, Wed, Thu, Fri, Sat, Sun
   if #elements > 0 then
     table.insert(elements, { Foreground = { Color = colors.gray } })
     table.insert(elements, { Text = "  •  " })
@@ -60,18 +60,18 @@ wezterm.on("update-right-status", function(window, pane)
   table.insert(elements, { Foreground = { Color = colors.green } })
   table.insert(elements, { Text = "󰸗 " .. weekday }) -- calendar icon + weekday
   
-  -- Kalenderwoche
-  local week_number = wezterm.strftime("%V") -- ISO week number
+  -- calendar week
+  local week_number = wezterm.strftime("%V") -- week number
   table.insert(elements, { Foreground = { Color = colors.gray } })
   table.insert(elements, { Text = "  •  " })
   table.insert(elements, { Foreground = { Color = colors.orange } })
   table.insert(elements, { Text = "󰨲 " .. "KW" .. week_number }) -- week icon + week number
   
-  -- Time
+  -- curr time
   local time = wezterm.strftime("%H:%M")
   table.insert(elements, { Foreground = { Color = colors.gray } })
   table.insert(elements, { Text = "  •  " })
-  table.insert(elements, { Foreground = { Color = colors.red } }) -- jetzt in kanagawa red
+  table.insert(elements, { Foreground = { Color = colors.red } })
   table.insert(elements, { Text = "󰥔 " .. time .. " " })
   
   window:set_right_status(wezterm.format(elements))
