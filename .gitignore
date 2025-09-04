@@ -1,0 +1,11 @@
+* 
+!.gitignore
+!nvim/
+!nvim/**
+!tmux/
+!tmux/**
+!wezterm/
+!wezterm/**
+!zsh/
+!zsh/**
+
