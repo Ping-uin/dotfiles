@@ -41,6 +41,6 @@ Changes can be made in the `~/.config/` dir and synced via the sync script:
 ~/dotfiles/sync.sh
 ```
 
-Copies all changes over to the git repo `~/dotfiles/` to `~/.config/`.
+Copies all changes from `~/.config/` over to the git repo `~/dotfiles/`
 
 Afterwards just git add, commit and push as needed
