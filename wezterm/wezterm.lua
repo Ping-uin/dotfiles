@@ -17,7 +17,6 @@ config.color_scheme = 'Kanagawa (Gogh)'
 -- always use zsh when using wez
 config.default_prog = { "zsh" }
 
--- rename tabs
 config.keys = {
 	{
 		key = 'E',

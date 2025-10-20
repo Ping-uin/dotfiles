@@ -47,6 +47,7 @@ vim.pack.add({
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
 	{ src = "https://github.com/folke/todo-comments.nvim" },
 	{ src = "https://github.com/mason-org/mason.nvim" },
+	{ src = "https://github.com/williamboman/mason-lspconfig.nvim" },
 	{ src = "https://github.com/nvim-lualine/lualine.nvim" },
 })
 
@@ -57,7 +58,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 			vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
 		end
 
-		-- Zusätzliche LSP Keybindings (optional)
+		-- LSP Keybindings
 		local opts = { buffer = ev.buf }
 		vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
 		vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
@@ -68,11 +69,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
 vim.cmd("set completeopt+=noselect")
 
 require "mason".setup()
+require "mason-lspconfig".setup({
+	ensure_installed = { "lua_ls", "basedpyright", "sqlls", "ts_ls" }
+})
+
 require "mini.pick".setup()
 require "lualine".setup()
 require "nvim-treesitter.configs".setup({
 	ensure_installed = { "lua", "javascript", "python", "rust",
-		"c", "cpp", "julia", "json", "yaml", "markdown", "sql"
+		"c", "cpp", "julia", "json", "yaml", "markdown", "sql", "typescript",
 	},
 	highlight = { enable = true }
 })
@@ -97,7 +102,7 @@ vim.keymap.set('n', '<leader>h', ":Pick help<CR>")
 vim.keymap.set('n', '<leader>n', ":Oil<CR>")
 vim.keymap.set('n', '<leader>f', vim.lsp.buf.format)
 
--- LSP enable
+-- LSP enable (without mason)
 vim.lsp.enable({ "lua_ls", "basedpyright", "sqlls" })
 
 -- GRAPHICS

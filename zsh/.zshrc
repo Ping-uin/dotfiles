@@ -1,5 +1,4 @@
 # ZSH Configuration 
-
 # HACK: ln -s ~/.config/zsh/.zshrc ~/.zshrc
 
 # ATUIN ENABLE
@@ -8,6 +7,27 @@ eval "$(atuin init zsh)"
 
 # Enable colors
 autoload -U colors && colors
+
+# FILE TYPE COLORS
+# Enable colored output for ls
+export CLICOLOR=1
+
+# Set LS_COLORS for different file types
+# Format: type=color_code
+# di=directories, ex=executables, ln=symlinks, fi=files
+export LS_COLORS='di=1;34:ln=1;36:so=1;32:pi=33:ex=1;32:bd=34;46:cd=34;43:su=37;41:sg=30;43:tw=30;42:ow=34;42:*.tar=1;31:*.tgz=1;31:*.zip=1;31:*.gz=1;31:*.bz2=1;31:*.jpg=1;35:*.jpeg=1;35:*.png=1;35:*.gif=1;35:*.mp4=1;35:*.mkv=1;35:*.pdf=1;33:*.md=1;33:*.txt=0;37'
+
+# Aliases for colored ls (choose based on your OS)
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    # macOS
+    alias ls='ls -G'
+else
+    # Linux
+    alias ls='ls --color=auto'
+fi
+
+alias ll='ls -lah'
+alias la='ls -A'
 
 # GIT INFORMATION SETUP
 autoload -Uz vcs_info
@@ -27,7 +47,6 @@ PROMPT='%F{#7E9CD8}%n@%m%f:%F{#7FB4CA}%~%f%F{#E82424}${vcs_info_msg_0_}%f %F{#98
 
 # Right prompt with time (optional)
 RPROMPT='%F{#727169}[%*]%f'
-
 
 # HISTORY SETTINGS
 HISTSIZE=10000
