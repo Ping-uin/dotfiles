@@ -46,7 +46,7 @@ setopt PROMPT_SUBST
 PROMPT='%F{#7E9CD8}%n@%m%f:%F{#7FB4CA}%~%f%F{#E82424}${vcs_info_msg_0_}%f %F{#98BB6C}$%f '
 
 # Right prompt with time (optional)
-RPROMPT='%F{#727169}[%*]%f'
+# RPROMPT='%F{#727169}[%*]%f'
 
 # HISTORY SETTINGS
 HISTSIZE=10000
