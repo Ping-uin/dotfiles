@@ -23,7 +23,7 @@ vim.keymap.set({ 'n', 'v', 'x' }, '<leader>y', '"+y<CR>')    -- copy to system c
 vim.keymap.set({ 'n', 'v', 'x' }, '<leader>x', '"+d<CR>')    -- cut to system clipboard
 -- open new windows/buffers/terminals
 vim.keymap.set('n', '<leader>tv', ':vsplit | terminal<CR>i') -- vertical terminal split
-vim.keymap.set('n', '<leader>th', ':split | terminal<CR>i')  -- horizontal terminal split
+vim.keymap.set('n', '<leader>th', ':below split | terminal<CR>i')  -- horizontal terminal split
 vim.keymap.set('n', '<leader>vs', ':vsplit<CR>')             -- vertical split (no terminal)
 vim.keymap.set('n', '<leader>hs', ':split<CR>')              -- horizontal split (no terminal)
 -- terminal navigation
