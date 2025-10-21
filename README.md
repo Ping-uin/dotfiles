@@ -21,7 +21,7 @@ Based configs I use. Trying to keep things minimal.
    ~/dotfiles/install.sh
    ```
 
-The script cpoies all config dirs from `~/dotfiles` to `~/.config/`. Prompts you before overwriting.
+The script cpoies all config dirs whitelisted in the gitignore from `~/dotfiles` to `~/.config/`. Prompts you before overwriting.
 
 ### Symlinks
 
