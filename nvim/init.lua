@@ -9,7 +9,9 @@ vim.o.scrolloff = 5         -- window moves down if cursor is x lines above uppe
 vim.o.sidescrolloff = 5
 vim.o.incsearch = true
 vim.o.ignorecase = true
-vim.o.colorcolumn = "120" -- vertical bar for code length
+vim.o.lazyredraw = true  -- Don't redraw during macros/scrolling
+vim.o.ttyfast = true     -- Faster terminal
+-- vim.o.colorcolumn = "120" -- vertical bar for code length
 vim.o.showmatch = true
 vim.o.cursorline = true   -- show cursor position
 -- vim.o.shell = "wezterm"	-- BUG: This opens wezterm as a external window not in buffer
@@ -106,5 +108,5 @@ vim.keymap.set('n', '<leader>f', vim.lsp.buf.format)
 vim.lsp.enable({ "lua_ls", "basedpyright", "sqlls" })
 
 -- GRAPHICS
-require "kanagawa".setup({ transparent = true })
+require "kanagawa".setup()
 vim.cmd("colorscheme kanagawa")
