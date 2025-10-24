@@ -1,4 +1,6 @@
-lazy-lock.json
-nvim.log
-startup.log
-LICENSE
+*
+!.gitignore
+!init.lua
+!snippets.lua
+!.stylua.toml
+!.ignore
