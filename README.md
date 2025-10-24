@@ -18,7 +18,7 @@ Based configs I use. Trying to keep things minimal.
 
 2. Run install script:
    ```bash
-   ~/dotfiles/install.sh
+   ~/dotfiles/deploy_local.sh
    ```
 
 The script cpoies all config dirs whitelisted in the gitignore from `~/dotfiles` to `~/.config/`. Prompts you before overwriting.
@@ -38,7 +38,7 @@ Example: `ln -s ~/.config/zsh/.zshrc ~/.zshrc`
 Changes can be made in the `~/.config/` dir and synced via the sync script:
 
 ```bash
-~/dotfiles/sync.sh
+~/dotfiles/export_conf.sh
 ```
 
 Copies all changes from `~/.config/` over to the git repo `~/dotfiles/`
