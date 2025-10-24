@@ -10,5 +10,5 @@
 !zsh/**
 !zathura
 !zathura/**
-!sync.sh
-!install.sh
+!deploy_local.sh
+!export_conf.sh
