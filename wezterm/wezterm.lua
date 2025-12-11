@@ -4,7 +4,8 @@ local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 -- config.window_background_opacity = 0.97
 -- config.macos_window_background_blur = 30
-config.window_decorations = 'RESIZE'
+-- config.window_decorations = 'TITLE|RESIZE'
+
 config.hide_mouse_cursor_when_typing = false
 -- init size for new windows
 config.initial_cols = 120
@@ -16,7 +17,6 @@ config.font_size = 12
 config.color_scheme = 'Kanagawa (Gogh)'
 -- always use zsh when using wez
 config.default_prog = { "zsh" }
-
 config.keys = {
 	{
 		key = 'E',

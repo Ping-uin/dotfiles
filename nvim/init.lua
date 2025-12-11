@@ -4,7 +4,7 @@ vim.o.signcolumn = "yes" -- bar for icons on the left
 vim.o.termguicolors = true
 vim.o.tabstop = 4
 vim.o.swapfile = false
-vim.o.winborder = "rounded" -- more distinguishable ctrl + k window
+-- vim.o.winborder = "rounded" -- more distinguishable ctrl + k window
 vim.o.scrolloff = 5         -- window moves down if cursor is x lines above upper/bottom line
 vim.o.sidescrolloff = 5
 vim.o.incsearch = true
@@ -15,7 +15,8 @@ vim.o.ttyfast = true     -- Faster terminal
 vim.o.showmatch = true
 vim.o.cursorline = true   -- show cursor position
 -- vim.o.shell = "wezterm"	-- BUG: This opens wezterm as a external window not in buffer
-
+vim.o.updatetime = 250
+vim.o.undofile = true
 -- HOTKEYS
 vim.g.mapleader = " "                                       -- spacebar as leader key
 vim.keymap.set('n', '<leader>o', ':update<CR> :source<CR>') -- [if changes -> save] + reload config
@@ -105,7 +106,7 @@ vim.keymap.set('n', '<leader>n', ":Oil<CR>")
 vim.keymap.set('n', '<leader>f', vim.lsp.buf.format)
 
 -- LSP enable (without mason)
-vim.lsp.enable({ "lua_ls", "basedpyright", "sqlls" })
+-- vim.lsp.enable({ "lua_ls", "basedpyright", "sqlls" })
 
 -- GRAPHICS
 require "kanagawa".setup()
