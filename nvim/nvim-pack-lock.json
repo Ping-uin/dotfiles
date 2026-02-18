@@ -1,0 +1,52 @@
+{
+  "plugins": {
+    "LuaSnip": {
+      "rev": "de10d8414235b0a8cabfeba60d07c24304e71f5c",
+      "src": "https://github.com/L3MON4D3/LuaSnip"
+    },
+    "kanagawa.nvim": {
+      "rev": "debe91547d7fb1eef34ce26a5106f277fbfdd109",
+      "src": "https://github.com/rebelot/kanagawa.nvim"
+    },
+    "lualine.nvim": {
+      "rev": "b8c23159c0161f4b89196f74ee3a6d02cdc3a955",
+      "src": "https://github.com/nvim-lualine/lualine.nvim"
+    },
+    "mason-lspconfig.nvim": {
+      "rev": "c55bd8a8fb191e24176c206a7af1dd51ce7276a5",
+      "src": "https://github.com/williamboman/mason-lspconfig.nvim"
+    },
+    "mason.nvim": {
+      "rev": "9e25c98d4826998460926f8c5c2284848d80ae89",
+      "src": "https://github.com/mason-org/mason.nvim"
+    },
+    "mini.pick": {
+      "rev": "82ec629ca108c7b96b8b9bb733d235b39e137690",
+      "src": "https://github.com/echasnovski/mini.pick"
+    },
+    "neo-tree.nvim": {
+      "rev": "46fa0c22ca39e05fe15744102d21feb07fe9a94a",
+      "src": "https://github.com/nvim-neo-tree/neo-tree.nvim"
+    },
+    "nvim-lspconfig": {
+      "rev": "d0dbf489a8810672fa9a61f4a86e5cf89214b772",
+      "src": "https://github.com/neovim/nvim-lspconfig"
+    },
+    "nvim-treesitter": {
+      "rev": "42fc28ba918343ebfd5565147a42a26580579482",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
+    "oil.nvim": {
+      "rev": "bbad9a76b2617ce1221d49619e4e4b659b3c61fc",
+      "src": "https://github.com/stevearc/oil.nvim"
+    },
+    "todo-comments.nvim": {
+      "rev": "304a8d204ee787d2544d8bc23cd38d2f929e7cc5",
+      "src": "https://github.com/folke/todo-comments.nvim"
+    },
+    "typst-preview.nvim": {
+      "rev": "dea4525d5420b7c32eebda7de15a6beb9d6574fa",
+      "src": "https://github.com/chomosuke/typst-preview.nvim"
+    }
+  }
+}

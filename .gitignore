@@ -6,10 +6,13 @@
 
 # Whitelist für Ordner
 !nvim/
+!nvim/**
 !tmux/
+!tmux/**
 !wezterm/
+!wezterm/**
 !zsh/
-!zathura/
+!zsh/**
 
 # Whitelist für die Scripts
 !deploy_local.sh
