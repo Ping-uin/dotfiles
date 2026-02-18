@@ -1,14 +1,16 @@
-* 
+# Alles ignorieren
+*
+
+# Nicht .gitignore selbst
 !.gitignore
+
+# Whitelist für Ordner
 !nvim/
-!nvim/**
 !tmux/
-!tmux/**
 !wezterm/
-!wezterm/**
 !zsh/
-!zsh/**
-!zathura
-!zathura/**
+!zathura/
+
+# Whitelist für die Scripts
 !deploy_local.sh
 !export_conf.sh
