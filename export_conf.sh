@@ -18,7 +18,7 @@ FOLDERS_TO_SYNC=(
     "tmux"
     "wezterm"
     "zsh"
-    "zathura"
+    "doom"
 )
 
 # Dateien im Root, die nicht in .config liegen

@@ -13,7 +13,8 @@
 !wezterm/**
 !zsh/
 !zsh/**
-
+!doom/
+!doom/**
 # Whitelist für die Scripts
 !deploy_local.sh
 !export_conf.sh
