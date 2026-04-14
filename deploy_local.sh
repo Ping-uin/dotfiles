@@ -19,7 +19,7 @@ FOLDERS_TO_SYNC=(
     "tmux"
     "wezterm"
     "zsh"
-    "zathura"
+    "doom"
 )
 
 # Dateien, die direkt ins Home-Dir oder woanders hin gehören (falls nötig)
