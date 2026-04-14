@@ -11,6 +11,7 @@
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
+(setq doom-font (font-spec :family "JuliaMono" :size 16))
 ;; - `doom-font' -- the primary font to use
 ;; - `doom-variable-pitch-font' -- a non-monospace font (where applicable)
 ;; - `doom-big-font' -- used for `doom-big-font-mode'; use this for
@@ -73,4 +74,3 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
