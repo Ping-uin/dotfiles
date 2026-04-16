@@ -5,7 +5,7 @@ local config = wezterm.config_builder()
 -- config.window_background_opacity = 0.97
 -- config.macos_window_background_blur = 30
 -- config.window_decorations = 'TITLE|RESIZE'
-
+config.enable_wayland = true
 config.hide_mouse_cursor_when_typing = false
 -- init size for new windows
 config.initial_cols = 120

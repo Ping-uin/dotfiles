@@ -67,3 +67,5 @@ echo -e "\033[38;2;152;187;108mMake it work\033[0m"
 echo -e "\033[38;2;127;180;202mMake it right\033[0m" 
 echo -e "\033[38;2;255;158;59mMake it fast\033[0m"
 echo ""
+export PATH="$HOME/.config/emacs/bin:$PATH"
+alias emacs="WAYLAND_DISPLAY=wayland-0 GDK_BACKEND=wayland emacs"   # Erwzingt wayland wenn Emacs aus Wezterm heraus gestartet wird
