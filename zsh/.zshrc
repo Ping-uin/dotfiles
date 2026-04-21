@@ -23,7 +23,7 @@ alias emacs="WAYLAND_DISPLAY=wayland-0 GDK_BACKEND=wayland emacs"
 
 # --- GIT INFORMATION SETUP ---
 autoload -Uz vcs_info
-precmd() { vcs_info }
+precmd() { vcs_info; }
 # Simples Git-Format in Klammern, ohne Farben: (branch) oder (branch|action)
 zstyle ':vcs_info:git:*' formats ' (%b)'
 zstyle ':vcs_info:git:*' actionformats ' (%b|%a)'
@@ -38,13 +38,13 @@ HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.zsh_history
 
-setopt SHARE_HISTORY          # Share history between sessions
-setopt HIST_IGNORE_DUPS       # Don't record duplicates
-setopt HIST_IGNORE_ALL_DUPS   # Remove older duplicates
-setopt HIST_FIND_NO_DUPS      # Don't display duplicates when searching
-setopt HIST_IGNORE_SPACE      # Don't record commands starting with space
-setopt HIST_REDUCE_BLANKS     # Remove superfluous blanks
-setopt INC_APPEND_HISTORY     # Append to history immediately
+setopt SHARE_HISTORY        # Share history between sessions
+setopt HIST_IGNORE_DUPS     # Don't record duplicates
+setopt HIST_IGNORE_ALL_DUPS # Remove older duplicates
+setopt HIST_FIND_NO_DUPS    # Don't display duplicates when searching
+setopt HIST_IGNORE_SPACE    # Don't record commands starting with space
+setopt HIST_REDUCE_BLANKS   # Remove superfluous blanks
+setopt INC_APPEND_HISTORY   # Append to history immediately
 
 # --- STARTUP (to make active zsh visible) ---
 echo ""
@@ -54,3 +54,7 @@ echo -e "( o>      < | Make it right |"
 echo -e "///\\\\        \\\\ Make it fast  /"
 echo -e "\\\\V_/_         -------------- "
 echo ""
+
+# --- POMO TIMER ADDED HERE ---
+# Absolut path to timer bin
+alias pomo="$HOME/Documents/sw_workspace/yapt/pomo"
