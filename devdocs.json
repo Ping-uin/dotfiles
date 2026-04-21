@@ -1,0 +1,9 @@
+{
+    "analyticsConsentAsked": "1",
+    "analyticsConsent": "0",
+    "layout": "_sidebar-hidden",
+    "theme": "dark",
+    "docs": "css/html/javascript/c/cpp/go/julia~1.12/latex/nix/python~3.14/rust",
+    "hideIntro": "1",
+    "hideDisabled": "1"
+}
