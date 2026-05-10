@@ -16,11 +16,17 @@ else
     alias ls='ls --color=auto'
 fi
 
+alias asw="~/acc_switch/switch_acc.sh"
+
 # Ubuntu spefici workaround
 if [[ ! -f /etc/NIXOS ]]; then
     alias emacs="WAYLAND_DISPLAY=wayland-0 GDK_BACKEND=wayland emacs"
 fi
+
 alias et="emacs -nw"
+
+alias pomo="$HOME/Documents/sw_workspace/yapt/pomo"
+
 # --- GIT INFORMATION SETUP ---
 autoload -Uz vcs_info
 precmd() { vcs_info; }
@@ -54,7 +60,3 @@ echo -e "( o>      < | Make it right |"
 echo -e "///\\\\        \\\\ Make it fast  /"
 echo -e "\\\\V_/_         -------------- "
 echo ""
-
-# --- POMO TIMER ADDED HERE ---
-# Absolut path to timer bin
-alias pomo="$HOME/Documents/sw_workspace/yapt/pomo"
