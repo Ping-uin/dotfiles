@@ -1,0 +1,81 @@
+@define-color charm-pink   #F25D94;
+@define-color charm-purple #7D56F4;
+@define-color charm-cyan   #00ADD8;
+@define-color charm-green  #04B575;
+@define-color charm-gray   #6B6B6B;
+@define-color charm-red    #E84033;
+@define-color charm-orange #FF9400;
+
+/* Bkgrnd leiste */
+@define-color bg-dark rgba(43, 48, 59, 0.85);
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JuliaMono", monospace;
+    font-size: 14px;
+    font-weight: bold;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: @bg-dark;
+    color: #ffffff;
+}
+
+/* Abstände für alle Module */
+#workspaces button,
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#tray {
+    padding: 0 12px;
+}
+
+#workspaces button {
+    color: #ffffff;
+    background-color: transparent;
+}
+
+/* Aktiver WOrkspace */
+#workspaces button.focused {
+    color: @charm-cyan;
+    box-shadow: inset 0 -3px @charm-cyan;
+}
+
+#workspaces button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Uhr */
+#clock {
+    color: @charm-pink;
+}
+
+/* Batterie */
+#battery {
+    color: @charm-purple;
+}
+
+#battery.warning {
+    color: @charm-orange;
+}
+
+#battery.critical {
+    color: @charm-red;
+}
+
+#battery.charging,
+#battery.plugged {
+    color: @charm-green;
+}
+
+/* --- Andere Module --- */
+#pulseaudio {
+    color: @charm-cyan;
+}
+
+#network {
+    color: @charm-green;
+}

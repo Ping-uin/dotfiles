@@ -7,60 +7,32 @@ DOTFILES_DIR="$HOME/dotfiles"
 CONFIG_DIR="$HOME/.config"
 
 # Colors
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-RED='\033[0;31m'
+PINK='\033[38;2;242;93;148m'
+PURPLE='\033[38;2;125;86;244m'
+CYAN='\033[38;2;0;173;216m'
+GREEN='\033[38;2;4;181;117m'
+RED='\033[38;2;232;64;51m'
+ORANGE='\033[38;2;255;148;0m'
 NC='\033[0m'
 
-# Neues kommt HIER rein, muss identisch mit dem deploy_local.sh script sein
-FOLDERS_TO_SYNC=(
-    "nvim"
-    "tmux"
-    "wezterm"
-    "zsh"
-    "doom"
-)
+# Shared list
+source "$DOTFILES_DIR/sync_vars.sh"
 
-# Dateien im Root, die nicht in .config liegen
-FILES_TO_SYNC=(
-    "deploy_local.sh"
-    "export_conf.sh"
-)
+echo -e "${PURPLE}[OP-SAAL] Starte Organentnahme: Patient -> Spenderbank (Dotfiles)${NC}"
 
-echo -e "${GREEN}Starting transplant to $DOTFILES_DIR...${NC}"
-
-# 1. Sync Folders (.config -> dotfiles)
+echo -e "${CYAN}[VITALWERTE] Isoliere Hauptorgane...${NC}"
 for dir in "${FOLDERS_TO_SYNC[@]}"; do
     src="$CONFIG_DIR/$dir"
     dest="$DOTFILES_DIR/$dir"
 
     if [[ -d "$src" ]]; then
-        echo -e "${GREEN}Syncing Directory: $dir${NC}"
+        echo -e "${GREEN}[SKALPELL] Entnehme Organ: $dir${NC}"
+
         mkdir -p "$dest"
-        # rsync flags:
-        # -a: Archive (Behält Rechte, Times, Symlinks - WICHTIG für nvim Plugins)
-        # -v: Verbose
-        # --delete: Löscht Dateien im Ziel, die in der Quelle nicht mehr existieren
-        # --exclude: Ignoriert .git Ordner
-        rsync -av --delete --exclude '.git' "$src/" "$dest/"
+        rsync -a --delete --exclude '.git' "$src/" "$dest/"
     else
-        echo -e "${YELLOW}Warning: Source organ $src missing. Skipping.${NC}"
+        echo -e "${ORANGE}[WARNUNG] Quell-Organ $src im Patienten nicht gefunden. Überspringe.${NC}"
     fi
 done
 
-# 2. Sync Individual Files
-for file in "${FILES_TO_SYNC[@]}"; do
-    src="$HOME/$file"
-    dest="$DOTFILES_DIR/$file"
-
-    if [[ -f "$src" ]]; then
-        echo -e "${GREEN}Syncing File: $file${NC}"
-        cp "$src" "$dest"
-    else
-        # Wenn die Datei nicht existiert, ist es vielleicht okay,
-        # solange sie schon im Repo ist.
-        echo -e "${YELLOW}File $src not found in source.${NC}"
-    fi
-done
-
-echo -e "${GREEN}Patient stabil. Sync complete.${NC}"
+echo -e "${PINK}[ERFOLG] Entnahme abgeschlossen. Spenderbank ist auf dem neuesten Stand. Patient überlebt.${NC}"

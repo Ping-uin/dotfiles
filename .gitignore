@@ -15,9 +15,15 @@
 !zsh/**
 !doom/
 !doom/**
+!sway/
+!sway/**
+!waybar/
+!waybar/**
+
 # Whitelist für die Scripts
 !deploy_local.sh
 !export_conf.sh
+!sync_vars.sh
 
 # Whitelist devdocs Einstellungen
 !devdocs.json

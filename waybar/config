@@ -1,0 +1,43 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+
+    // Die Uhrzeit verschwindet aus dem rechten Block...
+    "modules-left": ["sway/workspaces", "sway/mode"],
+
+    // ... und wird als einziges Modul in die Mitte gesetzt.
+    "modules-center": ["clock"],
+
+    "modules-right": ["pulseaudio", "network", "battery", "tray"],
+
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true
+    },
+
+    "clock": {
+        // %d = Tag, %b = Monatsname, %H:%M = Stunden:Minuten
+        "format": "{:%d. %b  %H:%M}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+
+    "pulseaudio": {
+        "format": "{volume}% {icon}",
+        "format-muted": "Muted ",
+        "format-icons": {
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-icons": ["", "", "", "", ""],
+        // Hier definieren wir Schwellenwerte, auf die wir im CSS reagieren können
+        "states": {
+            "warning": 50,
+            "critical": 25
+        }
+    }
+}
