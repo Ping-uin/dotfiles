@@ -16,11 +16,11 @@ else
     alias ls='ls --color=auto'
 fi
 
-alias ll='ls -lah'
-alias la='ls -A'
-# NOTE: This only exists since I got problems with wayland under ubuntu
-alias emacs="WAYLAND_DISPLAY=wayland-0 GDK_BACKEND=wayland emacs"
-
+# Ubuntu spefici workaround
+if [[ ! -f /etc/NIXOS ]]; then
+    alias emacs="WAYLAND_DISPLAY=wayland-0 GDK_BACKEND=wayland emacs"
+fi
+alias et="emacs -nw"
 # --- GIT INFORMATION SETUP ---
 autoload -Uz vcs_info
 precmd() { vcs_info; }
