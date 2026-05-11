@@ -24,7 +24,7 @@ if [[ ! -f /etc/NIXOS ]]; then
 fi
 
 alias et="emacs -nw"
-
+alias sw="cd $HOME/Documents/sw_workspace"
 alias pomo="$HOME/Documents/sw_workspace/yapt/pomo"
 
 # --- GIT INFORMATION SETUP ---
@@ -53,10 +53,15 @@ setopt HIST_REDUCE_BLANKS   # Remove superfluous blanks
 setopt INC_APPEND_HISTORY   # Append to history immediately
 
 # --- STARTUP (to make active zsh visible) ---
+
+CHARM_PINK='\033[38;2;242;93;148m'   # #F25D94
+CHARM_YELLOW='\033[38;2;243;210;80m' # #F3D250
+RESET='\033[0m'
+
 echo ""
 echo -e "              ______________ "
-echo -e " __         / Make it work  \\\\"
-echo -e "( o>      < | Make it right |"
+echo -e " ${CHARM_PINK}⋈${RESET}_         / Make it work  \\\\"
+echo -e "( o${CHARM_YELLOW}>${RESET}      < | Make it right |"
 echo -e "///\\\\        \\\\ Make it fast  /"
-echo -e "\\\\V_/_         -------------- "
+echo -e "\\\\V${CHARM_YELLOW}_${RESET}/${CHARM_YELLOW}_${RESET}         -------------- "
 echo ""
