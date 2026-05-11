@@ -80,3 +80,6 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+(after! org
+  ;; Zwingt die Agenda, alle .org Dateien im Hauptordner UND allen Unterordnern zu scannen
+  (setq org-agenda-files (directory-files-recursively "~/org/" "\\.org$")))
