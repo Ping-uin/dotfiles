@@ -21,7 +21,7 @@ Based configs I use. Trying to keep things minimal.
    ~/dotfiles/deploy_local.sh
    ```
 
-The script cpoies all config dirs whitelisted in the gitignore from `~/dotfiles` to `~/.config/`. Prompts you before overwriting.
+The script cpoies all config dirs listed in the sync_vars.sh file from `~/dotfiles` to `~/.config/`.
 
 ### Symlinks
 
@@ -35,7 +35,7 @@ Example: `ln -s ~/.config/zsh/.zshrc ~/.zshrc`
 
 ## Updating Dotfiles
 
-Changes can be made in the `~/.config/` dir and synced via the sync script:
+Changes can and should be made in the `~/.config/` dir and synced via the sync script:
 
 ```bash
 ~/dotfiles/export_conf.sh
