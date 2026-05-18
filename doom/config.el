@@ -80,6 +80,16 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
 (after! org
   ;; Zwingt die Agenda, alle .org Dateien im Hauptordner UND allen Unterordnern zu scannen
   (setq org-agenda-files (directory-files-recursively "~/org/" "\\.org$")))
+
+
+;; Rechtschreibung (Hunspell)
+(after! ispell
+  (setq ispell-program-name "hunspell")
+  (setq ispell-dictionary "de_DE")
+  (setq ispell-local-dictionary-alist
+        '(("de_DE" "[[:alpha:]äöüßÄÖÜ]" "[^[:alpha:]äöüßÄÖÜ]" "[']" nil ("-d" "de_DE") nil utf-8)
+          ("en_US" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil ("-d" "en_US") nil utf-8))))
