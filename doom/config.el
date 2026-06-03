@@ -93,14 +93,3 @@
   (setq ispell-local-dictionary-alist
         '(("de_DE" "[[:alpha:]äöüßÄÖÜ]" "[^[:alpha:]äöüßÄÖÜ]" "[']" nil ("-d" "de_DE") nil utf-8)
           ("en_US" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil ("-d" "en_US") nil utf-8))))
-(after! circe
-  (setq circe-network-options
-        '(("swspi"
-           ;; WICHTIG: Trage hier die IP-Adresse ein, mit der du dich vorhin per SSH verbunden hast!
-           :host "sws.local"
-           :port 6697
-           :tls t
-           ;; Erlaubt selbstsigniertes Zertifikat (./ergo mkcerts) ohne Fehler:
-           :nick "ping_uin"
-           :channels ("#test"))))
-  )
