@@ -19,6 +19,12 @@
 !sway/**
 !waybar/
 !waybar/**
+!fuzzel/
+!fuzzel/**
+!mako/
+!mako/**
+!swaylock/
+!swaylock/**
 
 # Whitelist für die Scripts
 !deploy_local.sh

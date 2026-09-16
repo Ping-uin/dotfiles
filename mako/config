@@ -1,0 +1,40 @@
+# mako — Notification Daemon für sway
+# Farben: CharmTone  |  Referenz: man 5 mako
+# Testen:  notify-send "Titel" "Text"
+
+font=JuliaMono 10
+background-color=#2D2C36F0
+text-color=#F7F6FB
+border-color=#6B50FF
+progress-color=over #6B50FF
+
+border-size=2
+border-radius=10
+padding=14
+margin=10
+width=380
+height=160
+
+anchor=top-right
+layer=overlay
+max-visible=5
+default-timeout=6000
+ignore-timeout=0
+
+icons=1
+max-icon-size=48
+
+# Klick schließt, Rechtsklick schließt alle
+on-button-left=dismiss
+on-button-right=dismiss-all
+on-button-middle=invoke-default-action
+
+[urgency=low]
+border-color=#4D4C57
+text-color=#BFBCC8
+default-timeout=4000
+
+[urgency=critical]
+border-color=#EB4268
+text-color=#F7F6FB
+default-timeout=0

@@ -8,5 +8,8 @@ FOLDERS_TO_SYNC=(
     "doom"
     "sway"
     "waybar"
+    "fuzzel"
+    "mako"
+    "swaylock"
     "yapt"
 )

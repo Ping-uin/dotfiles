@@ -1,43 +1,126 @@
+// waybar — Leiste für sway
+// Aussehen: style.css  |  Module-Referenz: man 5 waybar
 {
     "layer": "top",
     "position": "top",
-    "height": 30,
+    "height": 34,
+    "spacing": 0,
 
-    // Die Uhrzeit verschwindet aus dem rechten Block...
-    "modules-left": ["sway/workspaces", "sway/mode"],
-
-    // ... und wird als einziges Modul in die Mitte gesetzt.
+    "modules-left":   ["sway/workspaces", "sway/mode", "sway/scratchpad"],
     "modules-center": ["clock"],
-
-    "modules-right": ["pulseaudio", "network", "battery", "tray"],
+    "modules-right":  ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "battery", "tray", "custom/power"],
 
     "sway/workspaces": {
         "disable-scroll": true,
-        "all-outputs": true
+        "all-outputs": true,
+        "format": "{name}"
+    },
+
+    "sway/mode": {
+        "format": "  {}"
+    },
+
+    "sway/scratchpad": {
+        "format": "  {count}",
+        "show-empty": false,
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
     },
 
     "clock": {
         // %d = Tag, %b = Monatsname, %H:%M = Stunden:Minuten
-        "format": "{:%d. %b  %H:%M}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+        "format": "{:%d. %b   %H:%M}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "on-scroll": 1,
+            "format": {
+                "months":  "<span color='#BFBCC8'><b>{}</b></span>",
+                "weekdays": "<span color='#8B75FF'><b>{}</b></span>",
+                "today":   "<span color='#00FFB2'><b>{}</b></span>"
+            }
+        },
+        // Linksklick öffnet den vollen Kalender.
+        "on-click": "gnome-calendar",
+        // Im Tooltip-Kalender blättern, ohne ihn zu verlassen:
+        //   Rechtsklick = Monats-/Jahresansicht, Scrollen = Monat vor/zurück,
+        //   Mittelklick = zurück zum heutigen Datum.
+        "actions": {
+            "on-click-right":  "mode",
+            "on-click-middle": "shift_reset",
+            "on-scroll-up":    "shift_up",
+            "on-scroll-down":  "shift_down"
+        }
+    },
+
+    // Klick = Bildschirm wachhalten (z.B. beim Film schauen)
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        },
+        "tooltip-format-activated": "Bildschirm bleibt an",
+        "tooltip-format-deactivated": "Automatisches Sperren aktiv"
     },
 
     "pulseaudio": {
-        "format": "{volume}% {icon}",
-        "format-muted": "Muted ",
+        "format": "{icon}  {volume}%",
+        "format-muted": "  stumm",
         "format-icons": {
-            "default": ["", "", ""]
+            "headphone": "",
+            "headset": "",
+            "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pavucontrol",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "scroll-step": 5
     },
 
+    "network": {
+        "format-wifi": "  {essid}",
+        "format-ethernet": "  {ipaddr}",
+        "format-disconnected": "  offline",
+        "tooltip-format": "{ifname} · {ipaddr}/{cidr}\n↓ {bandwidthDownBits}  ↑ {bandwidthUpBits}",
+        "on-click": "nm-connection-editor"
+    },
+
+    "cpu": {
+        "format": "  {usage}%",
+        "interval": 5,
+        "on-click": "wezterm start -- btop"
+    },
+
+    "memory": {
+        "format": "  {percentage}%",
+        "tooltip-format": "{used:0.1f} GiB von {total:0.1f} GiB",
+        "interval": 5
+    },
+
+    // Blendet sich selbst aus, wenn kein Akku da ist (Desktop).
     "battery": {
-        "format": "{capacity}% {icon}",
-        "format-icons": ["", "", "", "", ""],
-        // Hier definieren wir Schwellenwerte, auf die wir im CSS reagieren können
+        "format": "{icon}  {capacity}%",
+        "format-charging": "  {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        // Schwellen, auf die style.css reagiert
         "states": {
-            "warning": 50,
-            "critical": 25
+            "warning": 30,
+            "critical": 15
         }
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8
+    },
+
+    // Ganz rechts, wie der Power-Button in GNOME.
+    // Das Menü selbst: ~/.config/sway/scripts/powermenu.sh
+    "custom/power": {
+        "format": "",
+        "tooltip": true,
+        "tooltip-format": "Sperren · Ruhezustand · Abmelden · Neu starten · Aus",
+        "on-click": "~/.config/sway/scripts/powermenu.sh"
     }
 }

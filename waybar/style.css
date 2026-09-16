@@ -1,81 +1,210 @@
-@define-color charm-pink   #F25D94;
-@define-color charm-purple #7D56F4;
-@define-color charm-cyan   #00ADD8;
-@define-color charm-green  #04B575;
-@define-color charm-gray   #6B6B6B;
-@define-color charm-red    #E84033;
-@define-color charm-orange #FF9400;
+/* ╭────────────────────────────────────────────────────────────╮
+   │  waybar — CharmTone (charm.land)                           │
+   │  Eine durchgängige Leiste am oberen Rand; die Module sind   │
+   │  Abschnitte darin, keine eigenen Kacheln.                   │
+   │  Struktur: ~/.config/waybar/config                          │
+   ╰────────────────────────────────────────────────────────────╯ */
 
-/* Bkgrnd leiste */
-@define-color bg-dark rgba(43, 48, 59, 0.85);
+/* --- Palette ------------------------------------------------ */
+/* Neutrale Töne */
+@define-color pepper #201F26;
+@define-color bbq    #2D2C36;
+@define-color char   #3A3943;
+@define-color iron   #4D4C57;
+@define-color squid  #858392;
+@define-color smoke  #BFBCC8;
+@define-color salt   #F7F6FB;
+
+/* Akzente */
+@define-color charple  #6B50FF;
+@define-color hazy     #8B75FF;
+@define-color malibu   #00A4FF;
+@define-color julep    #00FFB2;
+@define-color guac     #12C78F;
+@define-color zest     #E8FE96;
+@define-color mustard  #F5EF34;
+@define-color cheeky   #FF79D0;
+@define-color coral    #FF577D;
+@define-color sriracha #EB4268;
+@define-color turtle   #0ADCD9;
+
+/* --- Grundlagen --------------------------------------------- */
 
 * {
     border: none;
     border-radius: 0;
-    font-family: "JuliaMono", monospace;
-    font-size: 14px;
+    font-family: "JuliaMono", "Symbols Nerd Font Mono", monospace;
+    font-size: 13px;
     font-weight: bold;
     min-height: 0;
+    /* Tooltips erben sonst einen zu weichen Übergang */
+    transition: none;
 }
 
 window#waybar {
-    background-color: @bg-dark;
-    color: #ffffff;
+    /* Die Leiste selbst ist die Fläche — sie läuft von Kante zu Kante. */
+    background: @pepper;
+    color: @salt;
+    /* Feine Kante als Abgrenzung zum Fensterinhalt darunter */
+    border-bottom: 1px solid @char;
 }
 
-/* Abstände für alle Module */
-#workspaces button,
+tooltip {
+    background: @bbq;
+    border: 2px solid @charple;
+    border-radius: 8px;
+}
+
+tooltip label {
+    color: @salt;
+    padding: 4px;
+}
+
+/* --- Module als Abschnitte ---------------------------------- */
+/* Kein Hintergrund, kein Radius, kein Rand — nur Innenabstand. */
+
+#mode,
+#scratchpad,
 #clock,
-#battery,
+#idle_inhibitor,
 #pulseaudio,
 #network,
-#tray {
+#cpu,
+#memory,
+#battery,
+#tray,
+#custom-power {
+    background: transparent;
     padding: 0 12px;
+    margin: 0;
+}
+
+/* Etwas Luft an den beiden Bildschirmkanten */
+.modules-left  > widget:first-child > * { padding-left: 14px; }
+.modules-right > widget:last-child  > * { padding-right: 14px; }
+
+/* --- Workspaces --------------------------------------------- */
+
+#workspaces {
+    background: transparent;
+    padding: 0;
+    margin: 0;
 }
 
 #workspaces button {
-    color: #ffffff;
-    background-color: transparent;
-}
-
-/* Aktiver WOrkspace */
-#workspaces button.focused {
-    color: @charm-cyan;
-    box-shadow: inset 0 -3px @charm-cyan;
+    color: @squid;
+    background: transparent;
+    border-radius: 0;
+    padding: 0 12px;
+    margin: 0;
+    /* Platzhalter für die Markierung des aktiven Workspace */
+    border-bottom: 2px solid transparent;
+    /* Die Farbanimation beim Wechsel ist der einzige Effekt hier. */
+    transition: background-color 150ms ease, color 150ms ease;
 }
 
 #workspaces button:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    color: @salt;
+    background: @bbq;
+    /* waybar zeichnet sonst einen hässlichen Standard-Rand beim Hover */
+    box-shadow: none;
+    text-shadow: none;
 }
 
-/* Uhr */
+/* Aktiver Workspace: Balken unter dem Namen statt Kachel drumherum */
+#workspaces button.focused,
+#workspaces button.active {
+    color: @salt;
+    background: @bbq;
+    border-bottom: 2px solid @charple;
+}
+
+/* Workspace auf dem anderen Monitor, aber sichtbar */
+#workspaces button.visible {
+    color: @hazy;
+    border-bottom: 2px solid @iron;
+}
+
+/* Fenster verlangt Aufmerksamkeit */
+#workspaces button.urgent {
+    color: @pepper;
+    background: @sriracha;
+}
+
+/* --- Modus (resize) ----------------------------------------- */
+
+#mode {
+    color: @pepper;
+    background: @mustard;
+}
+
+#scratchpad {
+    color: @hazy;
+}
+
+/* --- Uhr (Mitte) -------------------------------------------- */
+/* Anklickbar: Linksklick öffnet den Kalender, darum reagiert sie
+   auf den Mauszeiger wie ein Knopf. */
+
 #clock {
-    color: @charm-pink;
+    color: @salt;
+    padding: 0 18px;
+    transition: background-color 150ms ease;
 }
 
-/* Batterie */
-#battery {
-    color: @charm-purple;
+#clock:hover {
+    background: @bbq;
+    color: @julep;
 }
 
-#battery.warning {
-    color: @charm-orange;
-}
+/* --- Rechte Module ------------------------------------------ */
 
-#battery.critical {
-    color: @charm-red;
-}
+#idle_inhibitor        { color: @squid; }
+#idle_inhibitor.activated { color: @mustard; }
 
+#pulseaudio            { color: @turtle; }
+#pulseaudio.muted      { color: @iron; }
+
+#network               { color: @guac; }
+#network.disconnected  { color: @coral; }
+
+#cpu                   { color: @malibu; }
+#memory                { color: @cheeky; }
+
+#battery               { color: @hazy; }
 #battery.charging,
-#battery.plugged {
-    color: @charm-green;
+#battery.plugged       { color: @julep; }
+#battery.warning       { color: @zest; }
+
+#battery.critical:not(.charging) {
+    color: @salt;
+    background: @sriracha;
 }
 
-/* --- Andere Module --- */
-#pulseaudio {
-    color: @charm-cyan;
+/* --- Tray --------------------------------------------------- */
+
+#tray {
+    padding: 0 10px;
 }
 
-#network {
-    color: @charm-green;
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background: @sriracha;
+}
+
+/* --- Power-Button (ganz rechts) ------------------------------ */
+
+#custom-power {
+    color: @coral;
+    padding: 0 14px;
+    transition: background-color 150ms ease, color 150ms ease;
+}
+
+#custom-power:hover {
+    color: @salt;
+    background: @sriracha;
 }

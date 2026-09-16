@@ -1,0 +1,52 @@
+# swaylock — Sperrbildschirm
+# Farben: CharmTone  |  Referenz: man 1 swaylock
+# Farbwerte hier ohne '#'.
+
+# Hinweis: swaylock expandiert '~' in dieser Datei NICHT (sway schon).
+# Das Hintergrundbild wird deshalb beim Aufruf übergeben — siehe die
+# swaylock-Zeilen in ~/.config/sway/config:  -i "$HOME/.config/background"
+color=201F26
+
+ignore-empty-password
+show-failed-attempts
+indicator-caps-lock
+indicator-radius=110
+indicator-thickness=8
+
+font=JuliaMono
+font-size=22
+
+# Ruhezustand — Charple
+ring-color=6B50FF
+inside-color=201F26CC
+line-color=201F26CC
+text-color=F7F6FB
+key-hl-color=00FFB2
+bs-hl-color=FF577D
+separator-color=00000000
+
+# Passwort wird geprüft — Malibu
+ring-ver-color=00A4FF
+inside-ver-color=201F26CC
+line-ver-color=201F26CC
+text-ver-color=F7F6FB
+
+# Falsches Passwort — Sriracha
+ring-wrong-color=EB4268
+inside-wrong-color=201F26CC
+line-wrong-color=201F26CC
+text-wrong-color=F7F6FB
+
+# Feld geleert — Zest
+ring-clear-color=E8FE96
+inside-clear-color=201F26CC
+line-clear-color=201F26CC
+text-clear-color=E8FE96
+
+# Feststelltaste an — Mustard
+ring-caps-lock-color=F5EF34
+inside-caps-lock-color=201F26CC
+line-caps-lock-color=201F26CC
+text-caps-lock-color=F5EF34
+caps-lock-key-hl-color=00FFB2
+caps-lock-bs-hl-color=FF577D
